@@ -1,7 +1,13 @@
 from flask import Flask
 from flask import render_template
+from controllers.duck_controller import duck_blueprint
+from controllers.gym_class_controller import gym_class_blueprint
 
 app = Flask(__name__)
+
+app.register_blueprint(duck_blueprint)
+
+app.register_blueprint(gym_class_blueprint)
 
 @app.route("/")
 def index():
