@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS ducks_in_classes;
+DROP TABLE IF EXISTS gym_classes;
+DROP TABLE IF EXISTS ducks;
+
+CREATE TABLE ducks (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    attack INT,
+    defense INT,
+    health INT
+);
+
+CREATE TABLE gym_classes (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR,
+    start_time INT,
+    end_time INT,
+    class_date DATE
+
+);
+
+CREATE TABLE ducks_in_classes (
+    id SERIAL PRIMARY KEY,
+    gym_class_id INT REFERENCES gym_classes(id) ON DELETE CASCADE,
+    duck_id INT REFERENCES ducks(id) ON DELETE CASCADE
+);
