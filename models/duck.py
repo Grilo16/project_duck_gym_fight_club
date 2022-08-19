@@ -6,3 +6,5 @@ class Duck:
         self.health = health
         self.id = id
         
+    def db_values(self):
+        return [self.name, self.attack, self.defense, self.health]
