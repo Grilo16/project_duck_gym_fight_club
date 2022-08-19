@@ -19,6 +19,8 @@ CREATE TABLE gym_classes (
 
 CREATE TABLE ducks_in_classes (
     id SERIAL PRIMARY KEY,
-    gym_class_id INT REFERENCES gym_classes(id) ON DELETE CASCADE,
-    duck_id INT REFERENCES ducks(id) ON DELETE CASCADE
+    duck_id INT REFERENCES ducks(id) ON DELETE CASCADE NOT NULL,
+    gym_class_id INT REFERENCES gym_classes(id) ON DELETE CASCADE NOT NULL,
+    UNIQUE (duck_id, gym_class_id)
+    
 );

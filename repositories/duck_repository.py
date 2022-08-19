@@ -5,6 +5,7 @@ def new_duck(duck):
     sql = "INSERT INTO ducks (name, attack, defense, health) VALUES (%s, %s, %s, %s) RETURNING id" 
     values = [duck.name, duck.attack, duck.defense, duck.health]
     duck.id = run_sql(sql, values)[0][0]
+    return duck
         
 def select_duck_by_id(id):
     sql = "SELECT * FROM ducks WHERE id = %s"
