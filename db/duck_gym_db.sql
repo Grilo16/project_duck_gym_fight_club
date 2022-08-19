@@ -13,9 +13,7 @@ CREATE TABLE ducks (
 CREATE TABLE gym_classes (
     id SERIAL PRIMARY KEY,
     name VARCHAR,
-    start_time INT,
-    end_time INT,
-    class_date DATE
+    duration INT
 
 );
 
