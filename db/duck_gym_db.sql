@@ -8,6 +8,7 @@ CREATE TABLE ducks (
     name VARCHAR,
     attack INT,
     defense INT,
+    speed INT,
     health INT
 );
 

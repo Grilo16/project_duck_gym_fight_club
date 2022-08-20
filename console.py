@@ -1,4 +1,3 @@
-
 from models.duck import Duck
 from models.gym_class import Gym_class
 from models.battle import Battle
@@ -24,70 +23,53 @@ from repositories.battle_repository import add_battle_result
 from repositories.battle_repository import select_battle_by_id
 from repositories.battle_repository import select_battles_won_by_duck
 from repositories.battle_repository import select_battles_lost_by_duck
-from repositories.battle_repository import select_all_battles
+from repositories.battle_repository import get_all_battles
 
+# Seeding starts 
 
-# duck1 = Duck("Ducky", 420, 69, 1000, 14)
-# duck2 = Duck("Ducky from mary from accounts", 420, 69, 1000, 15)
-# duck3 = Duck("Shanda Duckyleer", 420, 69, 1000, 16)
+# # Add ducks
+# duck1 = new_duck(Duck("Ducky", 42, 69, 3, 690))
+# duck2 = new_duck(Duck("Psyduck", 69, 96, 1, 420))
+# duck3 = new_duck(Duck("Donald", 105, 69, 4, 210))
+# duck4 = new_duck(Duck("Shanda Duckyleer", 210, 69, 2,  1000))
+# duck5 = new_duck(Duck("Eric The Master Duck", 420, 690, 10, 1000))
 
-duck1 = select_duck_by_id(1)
-duck2 = select_duck_by_id(2)
-duck3 = select_duck_by_id(3)
-
-# battle1 = Battle(duck3, duck2)
-# while True:
-#     battle1.fight_turn("gust", "wing attack")
-#     if battle1.winner:
-#         add_battle_result(battle1)
-#         break
-
-battles_won_by_duck = select_battles_won_by_duck(duck1)
-battles_lost_by_duck = select_battles_lost_by_duck(duck1)
-
-for battle in battles_won_by_duck:
-    print(f"Competitor one was {battle.duck_1.name}")
-    print(f"Competitor two was {battle.duck_2.name}")
-    print(f"The winner was {battle.winner.name}")
-    print()
-
-
-
-# print(duck1.__dict__)
-# print(duck2.__dict__)
-# print(duck3.__dict__)
-
-# d1vd2 = Battle(duck1, duck2)
-# while True:
-#     d1vd2.fight_turn("wing attack", "peck")
-#     print(d1vd2)
-#     if d1vd2.winner:
-#         break
-
-
-
-class1 = Gym_class("Pond Swimming", 90, 1)
-class3 = Gym_class("Flying high", 90, 2)
-class2 = Gym_class("Ducking Around", 90, 3)
-
+# # Add gym classes
+# class1 = new_gym_class_for_duckies(Gym_class("Pond Swimming", 90, 1))
+# # Add 3 ducks to gym class 1
 # add_duck_to_class(duck1, class1)
 # add_duck_to_class(duck2, class1)
 # add_duck_to_class(duck3, class1)
 
+# class2 = new_gym_class_for_duckies(Gym_class("Flying high", 90, 2))
+# # Add 5 ducks to gym class 1
 # add_duck_to_class(duck1, class2)
 # add_duck_to_class(duck2, class2)
+# add_duck_to_class(duck3, class2)
+# add_duck_to_class(duck4, class2)
+# add_duck_to_class(duck5, class2)
 
-# for i in range(10):
-#     new_duck(duck)
-#     new_gym_class_for_duckies(pond_swimming)
+# class3 = new_gym_class_for_duckies(Gym_class("Ducking Around", 90, 3))
+# # Add 2 ducks to gym class 3
+# add_duck_to_class(duck3, class3)
+# add_duck_to_class(duck4, class3)
 
-# for i in get_ducks_in_class(class2):
-#     print(i.__dict__)
+# # Adding ducky battles 
+# battle1 = add_battle_result(Battle(duck1, duck2, winner=duck2))
+# battle2 = add_battle_result(Battle(duck1, duck3, winner=duck3))
+# battle3 = add_battle_result(Battle(duck1, duck4, winner=duck1))
+# battle4 = add_battle_result(Battle(duck1, duck5, winner=duck5))
 
-# print()
+# battle5 = add_battle_result(Battle(duck5, duck1, winner=duck5))
+# battle6 = add_battle_result(Battle(duck5, duck2, winner=duck5))
+# battle7 = add_battle_result(Battle(duck5, duck3, winner=duck5))
+# battle8 = add_battle_result(Battle(duck5, duck4, winner=duck5))
+
+# SEEDING ENDS
 
 
 
 
-# list(map(lambda item : print(item.__dict__) ,get_all_ducks()))
-# list(map(lambda item : print(item.__dict__) ,get_all_classes()))
+list(map(lambda item : print(item.__dict__) ,get_all_ducks()))
+list(map(lambda item : print(item.__dict__) ,get_all_classes()))
+list(map(lambda item : print(item.__dict__) ,get_all_battles()))

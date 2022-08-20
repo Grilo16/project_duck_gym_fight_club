@@ -5,6 +5,7 @@ def new_gym_class_for_duckies(gym_class):
     sql = "INSERT INTO gym_classes (name, duration) VALUES (%s, %s) RETURNING id"
     values = [gym_class.name, gym_class.duration]
     gym_class.id = run_sql(sql, values)[0][0]
+    return gym_class
     
 def select_class_by_id(id):
     sql = "SELECT * FROM gym_classes WHERE id = %s"
