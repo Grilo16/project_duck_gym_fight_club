@@ -6,7 +6,7 @@ class Duck:
         self.speed = speed
         self._health = health
         self.id = id
-        self.attacks = self.attacks_by_lvl()
+        self.attacks = self.attacks_by_attack_pow()
         
     @property
     def health(self):
@@ -21,7 +21,7 @@ class Duck:
         return self._health
         
     
-    def attacks_by_lvl(self):
+    def attacks_by_attack_pow(self):
         attacks = {"peck": 50}
         if self.attack > 50:
             attacks["wing attack"] = 69
@@ -33,3 +33,14 @@ class Duck:
     
     def ducky_attack(self, attack_name):
         return self.attacks[attack_name]
+    
+    def stat_up(self, gym_class):
+        if gym_class.stat_up == "attack":
+            self.attack += gym_class.stat_up_amount
+        elif gym_class.stat_up == "defense":
+            self.defense += gym_class.stat_up_amount
+        elif gym_class.stat_up == "speed":
+            self.speed += gym_class.stat_up_amount
+        elif gym_class.stat_up == "health":
+            self.health += gym_class.stat_up_amount
+        

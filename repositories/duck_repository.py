@@ -13,7 +13,7 @@ def select_duck_by_id(id):
     return Duck(**run_sql(sql, values)[0])
 
 def update_duck(duck):
-    sql = "UPDATE ducks SET name = %s, attack = %s, defense = %s, health = %s WHERE id = %s" 
+    sql = "UPDATE ducks SET name = %s, attack = %s, defense = %s, speed=%s, health = %s WHERE id = %s" 
     values = [duck.name, duck.attack, duck.defense, duck.speed, duck.health, duck.id]
     run_sql(sql, values)
     

@@ -2,8 +2,8 @@ from db.run_sql import run_sql
 from models.gym_class import Gym_class
 
 def new_gym_class_for_duckies(gym_class):
-    sql = "INSERT INTO gym_classes (name, duration) VALUES (%s, %s) RETURNING id"
-    values = [gym_class.name, gym_class.duration]
+    sql = "INSERT INTO gym_classes (name, stat_up, stat_up_amount) VALUES (%s, %s, %s) RETURNING id"
+    values = [gym_class.name, gym_class.stat_up, gym_class.stat_up_amount]
     gym_class.id = run_sql(sql, values)[0][0]
     return gym_class
     
@@ -13,8 +13,8 @@ def select_class_by_id(id):
     return Gym_class(**run_sql(sql, values)[0])
 
 def update_gym_class(gym_class):
-    sql = "UPDATE gym_classes SET name=%s, duration=%s where id = %s"
-    values = [gym_class.name, gym_class.duration, gym_class.id]
+    sql = "UPDATE gym_classes SET name=%s, stat_up=%s, stat_up_amount=%s where id = %s"
+    values = [gym_class.name, gym_class.stat_up, gym_class.stat_up_amount, gym_class.id]
     run_sql(sql, values)
 
 def get_all_classes():

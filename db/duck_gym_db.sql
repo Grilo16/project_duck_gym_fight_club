@@ -15,7 +15,8 @@ CREATE TABLE ducks (
 CREATE TABLE gym_classes (
     id SERIAL PRIMARY KEY,
     name VARCHAR,
-    duration INT
+    stat_up VARCHAR,
+    stat_up_amount INT
 
 );
 
