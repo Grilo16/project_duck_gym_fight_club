@@ -1,5 +1,5 @@
-class Fight:
-    def __init__(self, duck1, duck2, id = None, winner = 0):
+class Battle:
+    def __init__(self, duck1, duck2, id = None, winner = None):
         self.id = id
         self.duck1 = duck1
         self.duck2 = duck2
@@ -23,7 +23,7 @@ class Fight:
             return "Game over" + self.duck1.name
         
     def __str__(self):
-        if self.winner == 0:
+        if self.winner == None:
             return "Fight is ongoing"
         return f"Winner is {self.winner}, {self.duck1.name} health is: {self.duck1.health}\n{self.duck2.name} health is: {self.duck2.health}"
             

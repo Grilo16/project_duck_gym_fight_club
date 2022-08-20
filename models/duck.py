@@ -25,7 +25,7 @@ class Duck:
         if self.attack > 50:
             attacks["wing attack"] = 69
         if self.attack > 100:
-            attacks["Gust"] = 100
+            attacks["gust"] = 100
         if self.attack > 200:
             attacks["DUCK MAXIMUM POWER"] = 999
         return attacks

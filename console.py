@@ -1,7 +1,7 @@
 
 from models.duck import Duck
 from models.gym_class import Gym_class
-from models.fight import Fight
+from models.battle import Battle
 
 from repositories.duck_repository import new_duck
 from repositories.duck_repository import select_duck_by_id
@@ -20,17 +20,37 @@ from repositories.ducks_in_classes_repository import add_duck_to_class
 from repositories.ducks_in_classes_repository import get_ducks_in_class
 from repositories.ducks_in_classes_repository import remove_duck_from_class
 
+from repositories.battle_repository import add_battle_result
 
-duck1 = Duck("Ducky", 420, 69, 1000, 14)
-duck2 = Duck("Ducky from mary from accounts", 420, 69, 1000, 15)
-duck3 = Duck("Shanda Duckyleer", 420, 69, 1000, 16)
 
-d1vd2 = Fight(duck1, duck2)
+# duck1 = Duck("Ducky", 420, 69, 1000, 14)
+# duck2 = Duck("Ducky from mary from accounts", 420, 69, 1000, 15)
+# duck3 = Duck("Shanda Duckyleer", 420, 69, 1000, 16)
+
+duck1 = select_duck_by_id(1)
+duck2 = select_duck_by_id(2)
+duck3 = select_duck_by_id(3)
+
+battle1 = Battle(duck3, duck2)
 while True:
-    d1vd2.fight_turn("wing attack", "peck")
-    print(d1vd2)
-    if d1vd2.winner != 0:
+    battle1.fight_turn("gust", "wing attack")
+    if battle1.winner:
+        add_battle_result(battle1)
         break
+
+
+
+
+# print(duck1.__dict__)
+# print(duck2.__dict__)
+# print(duck3.__dict__)
+
+# d1vd2 = Battle(duck1, duck2)
+# while True:
+#     d1vd2.fight_turn("wing attack", "peck")
+#     print(d1vd2)
+#     if d1vd2.winner:
+#         break
 
 
 
