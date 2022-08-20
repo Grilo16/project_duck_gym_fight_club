@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create new duck</h1>
+<form action="/create_duck" method = "post">
+    <input type="text" name="duck_name">
+    <button type="submit">Create new duck</button>
+</form>
+
+{% endblock %}

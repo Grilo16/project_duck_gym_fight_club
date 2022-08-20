@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{duck.name}}</h1>
+<form action="/duck_stats/admin/{{duck.id}}" method="post">
+
+    <label for="name">Duck name</label>
+    <input type="text" name="name" value ="{{duck.name}}">
+    <br>
+
+    <label for="health">Duck health</label>
+    <input type="number" name="health" value = {{duck.health}}>
+    <br>
+    
+    <label for="attack">Duck attack</label>
+    <input type="number" name="attack" value = {{duck.attack}}>
+    <br>
+    
+    <label for="health">Duck defense</label>
+    <input type="number" name="defense" value = {{duck.defense}}>
+    <br>
+    
+    <label for="speed">Duck speed</label>
+    <input type="number" name="speed" value = {{duck.speed}}>
+    <br>
+    <button type="submit">Change stats</button>
+</form>
+<form action="/admin/delete/duck/{{duck.id}}" method="post">
+    <button type="submit">delete duck</button>
+</form>
+{% endblock %}
