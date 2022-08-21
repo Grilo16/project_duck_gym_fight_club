@@ -5,5 +5,8 @@
 {% endif %}
 {% for gym_class in duck_gym_classes %}
 <p>{{gym_class.name}} <a href="/gym_class/{{gym_class.id}}">View gym class</a></p>
+<form action="/duck/{{duck.id}}/finish_class/{{gym_class.id}}" method="post">
+    <button type="submit">finish class</button>
+</form>
 {% endfor %}
 {% endblock %}

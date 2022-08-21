@@ -40,4 +40,4 @@ def remove_duck_from_class_post(duck_id, gc_id):
 def show_classes_from_duck(duck_id):
     duck = select_duck_by_id(duck_id)
     duck_gym_classes = get_classes_from_duck(duck)
-    return render_template("ducks_in_classes/classes_from_duck.html", duck_gym_classes = duck_gym_classes)
+    return render_template("ducks_in_classes/classes_from_duck.html", duck_gym_classes = duck_gym_classes, duck=duck)
