@@ -23,6 +23,16 @@ def get_ducks_in_class(gym_class):
             WHERE dic.gym_class_id = %s"""
     values = [gym_class.id]
     return list(map(lambda duck_info: Duck(**duck_info), run_sql(sql, values)))
+
+def get_classes_from_duck(duck):
+    sql ="""select gc.* from ducks 
+            join ducks_in_classes dic 
+            on ducks.id  = dic.duck_id
+            join gym_classes gc 
+            on gc.id = dic.gym_class_id 
+            where ducks.id = %s;"""
+    values = [duck.id]
+    return list(map(lambda gym_class_info: Gym_class(**gym_class_info), run_sql(sql, values)))
     
 def is_duck_in_class(duck, gym_class):
     sql = """select * from ducks_in_classes dic 

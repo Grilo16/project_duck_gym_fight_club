@@ -10,6 +10,7 @@ from repositories.duck_repository import select_duck_by_id
 from repositories.gym_class_repository import select_class_by_id
 
 from repositories.ducks_in_classes_repository import add_duck_to_class
+from repositories.ducks_in_classes_repository import get_classes_from_duck
 from repositories.ducks_in_classes_repository import get_ducks_in_class
 from repositories.ducks_in_classes_repository import remove_duck_from_class
 
@@ -34,3 +35,9 @@ def remove_duck_from_class_post(duck_id, gc_id):
     gym_class = select_class_by_id(gc_id)
     remove_duck_from_class(duck, gym_class)
     return redirect(f"/gym_class/ducks_in_class/{gc_id}")
+
+@ducks_in_classes_blueprint.route("/duck/<duck_id>/classes")
+def show_classes_from_duck(duck_id):
+    duck = select_duck_by_id(duck_id)
+    duck_gym_classes = get_classes_from_duck(duck)
+    return render_template("ducks_in_classes/classes_from_duck.html", duck_gym_classes = duck_gym_classes)
