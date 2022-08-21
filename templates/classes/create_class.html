@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/create_class" method = "post">
+    <label for="name">Gym class name</label>
+    <input type="text" name="name" required>
+    <br>
+        <input type="radio" id="attack" value="attack" name="stat_up" required>
+        <label for="attack">attack</label>
+        
+        <input type="radio" id="defense" value="defense" name="stat_up">
+        <label for="defense">defense</label>
+        
+        <input type="radio" id="health" value="health" name="stat_up">
+        <label for="health">health</label>
+        
+        <input type="radio" id="speed" value="speed" name="stat_up">
+        <label for="speed">speed</label>
+    <br>
+        <label for="stat_up_amount">Amount to increase stat</label>
+        <input type="number" name ="stat_up_amount" value="0">    
+    <br>
+        <input type="submit" value="create new gym class">
+</form>
+
+
+{% endblock %}

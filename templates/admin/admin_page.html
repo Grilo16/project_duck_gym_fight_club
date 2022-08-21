@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>this will be the admin page</h1>
+<h2>Ducks registered</h2>
+{% for duck in all_ducks %}
+<p>
+    {{duck.name}} <a href="/duck_stats/admin/{{duck.id}}">Edit stats</a>
+    <form action="/admin/delete/duck/{{duck.id}}" method="post">
+        <button type="submit">delete duck</button>
+    </form> 
+</p>
+{% endfor %}
+<form action="/create_duck">
+    <button>Create duck</button>
+</form>
+<br>
+<h2>Gym classes</h2>
+{% for gym_class in all_gym_classes %}
+<p>
+    {{gym_class.name}} <a href="/gym_class_edit/admin/{{gym_class.id}}">edit gym class</a> 
+    <form action="/admin/delete/{{gym_class.id}}" method="post">
+        <button>delete gym class</button>
+    </form>
+</p>
+{% endfor %}
+<form action="/create_class">
+    <button type="submit">Create new gym class</button>
+</form>
+{% endblock %}

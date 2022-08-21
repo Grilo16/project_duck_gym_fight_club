@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>edit class will go here</h1>
+<form action="/gym_class_edit/admin/{{gym_class.id}}" method ="post">
+    <label for="name">Gym class name: </label>
+    <input type="text" name="name" value="{{gym_class.name}}" required>
+    <br>
+    <label for="health">health</label>
+    {% if gym_class.stat_up == "health" %}
+    <input type="radio" name="stat_up" id="health" value="health" checked>
+    
+    <label for="speed">speed</label>
+    <input type="radio" name="stat_up" id="speed" value="speed">
+
+    <label for="attack">attack</label>
+    <input type="radio" name="stat_up" id="attack" value="attack">
+    
+    <label for="defense">defense</label>
+    <input type="radio" name="stat_up" id="defense" value="defense">
+    {% endif %}
+    
+    {% if gym_class.stat_up == "speed" %}
+    <input type="radio" name="stat_up" id="health" value=">
+    
+    <label for="speed">speed</label>
+    <input type="radio" name="stat_up" id="speed" value="speed" checked>
+
+    <label for="attack">attack</label>
+    <input type="radio" name="stat_up" id="attack" value="attack">
+    
+    <label for="defense">defense</label>
+    <input type="radio" name="stat_up" id="defense" value="defense">
+    {% endif %}
+    
+    {% if gym_class.stat_up == "attack" %}
+    <input type="radio" name="stat_up" id="health" value="health">
+    
+    <label for="speed">speed</label>
+    <input type="radio" name="stat_up" id="speed" value="speed">
+
+    <label for="attack">attack</label>
+    <input type="radio" name="stat_up" id="attack" value="attack" checked>
+    
+    <label for="defense">defense</label>
+    <input type="radio" name="stat_up" id="defense" value="defense">
+    {% endif %}
+    
+    {% if gym_class.stat_up == "defense" %}
+    <input type="radio" name="stat_up" id="health" value="health">
+    
+    <label for="speed">speed</label>
+    <input type="radio" name="stat_up" id="speed" value="speed">
+
+    <label for="attack">attack</label>
+    <input type="radio" name="stat_up" id="attack" value="attack">
+    
+    <label for="defense">defense</label>
+    <input type="radio" name="stat_up" id="defense" value="defense" checked>
+    {% endif %}
+    
+    
+    
+    <br>
+
+
+    <label for="stat_up_amount">Stat up amount: </label>
+    <input type="number" name="stat_up_amount" value="{{gym_class.stat_up_amount}}" required>
+    <br>
+    <button type="submit">confirm edits</button>
+
+</form>
+{% endblock %}

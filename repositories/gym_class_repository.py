@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.gym_class import Gym_class
 
+
 def new_gym_class_for_duckies(gym_class):
     sql = "INSERT INTO gym_classes (name, stat_up, stat_up_amount) VALUES (%s, %s, %s) RETURNING id"
     values = [gym_class.name, gym_class.stat_up, gym_class.stat_up_amount]

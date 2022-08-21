@@ -11,32 +11,32 @@ from repositories.duck_repository import remove_duck
 
 duck_blueprint = Blueprint("ducks", __name__)
 
-# admin pages
-@duck_blueprint.route("/admin")
-def admin_page():
-    all_ducks = get_all_ducks()
-    return render_template("ducks/duck_admin_page.html", all_ducks=all_ducks)
+# # admin pages
+# @duck_blueprint.route("/admin")
+# def admin_page():
+#     all_ducks = get_all_ducks()
+#     return render_template("ducks/duck_admin_page.html", all_ducks=all_ducks)
 
-@duck_blueprint.route("/duck_stats/admin/<duck_id>", methods=["GET"])
-def admin_page_duck_stats(duck_id):
-    duck = select_duck_by_id(duck_id)
-    return render_template("ducks/view_duck_stats_admin.html", duck=duck)
+# @duck_blueprint.route("/duck_stats/admin/<duck_id>", methods=["GET"])
+# def admin_page_duck_stats(duck_id):
+#     duck = select_duck_by_id(duck_id)
+#     return render_template("ducks/view_duck_stats_admin.html", duck=duck)
     
-@duck_blueprint.route("/duck_stats/admin/<duck_id>", methods=["POST"])
-def admin_page_edit_duck(duck_id):
-    duck = select_duck_by_id(duck_id)
-    duck.name = request.form["name"]
-    duck.health = int(request.form["health"])
-    duck.attack = int(request.form["attack"])
-    duck.defense = int(request.form["defense"])
-    duck.speed = int(request.form["speed"])
-    update_duck(duck)
-    return redirect("/admin")
+# @duck_blueprint.route("/duck_stats/admin/<duck_id>", methods=["POST"])
+# def admin_page_edit_duck(duck_id):
+#     duck = select_duck_by_id(duck_id)
+#     duck.name = request.form["name"]
+#     duck.health = int(request.form["health"])
+#     duck.attack = int(request.form["attack"])
+#     duck.defense = int(request.form["defense"])
+#     duck.speed = int(request.form["speed"])
+#     update_duck(duck)
+#     return redirect("/admin")
 
-@duck_blueprint.route("/admin/delete/duck/<duck_id>", methods=["POST"])
-def admin_page_delete_duck(duck_id):
-    remove_duck(select_duck_by_id(duck_id))
-    return redirect("/admin")
+# @duck_blueprint.route("/admin/delete/duck/<duck_id>", methods=["POST"])
+# def admin_page_delete_duck(duck_id):
+#     remove_duck(select_duck_by_id(duck_id))
+#     return redirect("/admin")
 
 #  ===============================================================================
 

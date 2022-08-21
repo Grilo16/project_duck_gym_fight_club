@@ -30,7 +30,7 @@ CREATE TABLE ducks_in_classes (
 
 CREATE TABLE battle_results (
     id SERIAL PRIMARY KEY,
-    duck_1_id INT REFERENCES ducks(id) NOT NULL,
-    duck_2_id INT REFERENCES ducks(id) NOT NULL,
-    winner INT REFERENCES ducks(id) NOT NULL
+    duck_1_id INT REFERENCES ducks(id) ON DELETE CASCADE NOT NULL,
+    duck_2_id INT REFERENCES ducks(id) ON DELETE CASCADE NOT NULL,
+    winner INT REFERENCES ducks(id) ON DELETE CASCADE NOT NULL
 )

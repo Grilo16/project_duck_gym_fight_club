@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>this will be the admin page</h1>
-{% for duck in all_ducks %}
-<p>
-    {{duck.name}} <a href="/duck_stats/admin/{{duck.id}}">Edit stats</a> 
-</p>
-{% endfor %}
-{% endblock %}

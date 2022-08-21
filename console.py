@@ -88,6 +88,7 @@ gym_class2 = select_class_by_id(2)
 gym_class3 = select_class_by_id(3)
 gym_class4 = select_class_by_id(4)
 
+ducky.health = -10
 
 
 test_battle = Battle(ducky, test_duck)

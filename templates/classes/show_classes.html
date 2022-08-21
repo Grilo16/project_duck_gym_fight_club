@@ -1,4 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-will show all classes here
+{% for gym_class in all_classes %}
+<p>
+    {{gym_class.name}} <a href="/gym_class/{{gym_class.id}}">View class</a>
+</p>
+{% endfor %}
+<form action="/create_class">
+    <button type="submit">Create new gym class</button>
+</form>
+
+
 {% endblock %}
