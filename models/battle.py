@@ -74,6 +74,6 @@ class Battle:
     def __str__(self):
         if self.winner == None:
             return f"Fight is ongoing {self.duck_1.name} health is {self.duck_1.health} and {self.duck_2.name} health is {self.duck_2.health}"
-        return f"Winner was {self.winner.name}"
+        return f"Battle : {self.duck_1.name} VS {self.duck_2.name}|| Winner was {self.winner.name}"
             
         

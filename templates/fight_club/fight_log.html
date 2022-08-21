@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% for battle in all_battles %}
+<p>{{battle.winner.name}} was victorious at the battle: {{battle.duck_1.name}} VS {{battle.duck_2.name}}</p>
+{% endfor %}
+{% endblock %}

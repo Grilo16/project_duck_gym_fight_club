@@ -81,19 +81,18 @@ def seeding_db():
 
 # seeding_db()
 
-ducky = select_duck_by_id(1)
-test_duck = select_duck_by_id(6)
-gym_class1 = select_class_by_id(1)
-gym_class2 = select_class_by_id(2)
-gym_class3 = select_class_by_id(3)
-gym_class4 = select_class_by_id(4)
-
-ducky.health = -10
+# ducky = select_duck_by_id(1)
+# test_duck = select_duck_by_id(6)
+# gym_class1 = select_class_by_id(1)
+# gym_class2 = select_class_by_id(2)
+# gym_class3 = select_class_by_id(3)
+# gym_class4 = select_class_by_id(4)
 
 
-test_battle = Battle(ducky, test_duck)
-test_battle.fight_turn("gust", "peck")
-print(test_battle)
+
+# test_battle = Battle(ducky, test_duck)
+# test_battle.fight_turn("gust", "peck")
+# print(test_battle)
 
 
 

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+This page will show the battles from {{duck.name}}
+<h2>battles won</h2>
+{% for battle in battles_won %}
+<p>{{battle}}</p>
+{% endfor %}
+<h2>battles lost</h2>
+{% for battle in battles_lost %}
+<p>{{battle}}</p>
+{% endfor %}
+{% endblock %}

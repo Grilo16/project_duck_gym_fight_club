@@ -1,4 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Wellcome to duck fight club quack!</h1>
+<p>
+    <a href="/fight_club/fight_log">view fight log</a>
+</p>
+<p>
+    <a href="">start a battle</a>
+</p>
+<form action="/fight_club/battles" method="post">
+    <select name="duck" id="">
+        {% for duck in all_ducks %}
+        <option value="{{duck.id}}">
+            {{duck.name}}
+        </option>
+        {% endfor %}
+    </select>
+    <button type="submit">view battles</button>
+
+</form>
 {% endblock %}
