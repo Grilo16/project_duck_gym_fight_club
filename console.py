@@ -17,7 +17,7 @@ from repositories.gym_class_repository import get_all_classes
 from repositories.gym_class_repository import remove_class
 
 
-from repositories.ducks_in_classes_repository import add_duck_to_class, is_duck_in_class
+from repositories.ducks_in_classes_repository import add_duck_to_class
 from repositories.ducks_in_classes_repository import get_ducks_in_class
 from repositories.ducks_in_classes_repository import remove_duck_from_class
 from repositories.ducks_in_classes_repository import is_duck_in_class

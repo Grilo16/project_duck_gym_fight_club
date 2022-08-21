@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-This will be a ducky gym
+<h1>Add duck to class</h1>
+<br>
+<form action="/add/duck_to_class" method = "post">
+
+    <select name="ducks">
+        {% for duck in all_ducks %}
+        <option value="{{duck.id}}">{{duck.name}}</option>
+        {% endfor %}
+    </select>
+    <select name="class">
+        {% for gym_class in all_classes %}
+        <option value="{{gym_class.id}}">{{gym_class.name}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add duck to class</button>
+</form>
 
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Gym class: {{gym_class.name}}</h1>
+<h2>Ducks in class :</h2>
+{% for duck in ducks_in_class %}
+<p>{{duck.name}} <a href="/duck_stats/{{duck.id}}">View stats</a></p>
+<form action="/duck/{{duck.id}}/finish_class/{{gym_class.id}}" method="post">
+    <button type="submit">finish class</button>
+</form>
+
+{% endfor %}
+
+{% endblock %}
