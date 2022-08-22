@@ -20,7 +20,7 @@ def update_duck(duck):
 def get_all_ducks():
     sql = "SELECT * FROM ducks"
     return list(map(lambda duck_info: Duck(**duck_info), run_sql(sql)))
-    
+
 def remove_duck(duck):
     sql = "DELETE FROM ducks WHERE id = %s"
     values = [duck.id]

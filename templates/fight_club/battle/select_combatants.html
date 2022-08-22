@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Choose your duck combatants</h1>
+<form action="/fight_club/battle/verify" method="post">
+    {% if message %}
+    <h2>A duck can only fight itself mentaly, please choose different ducks for a phisical battle</h2>
+    {% endif %}
+
+    <h2>Combatant 1</h2>
+    <select name="duck_1">
+        {% for duck in all_ducks %}
+        <option value="{{duck.id}}">{{duck.name}}</option>
+        {% endfor %}
+    </select>
+    <h2>Combatant 2</h2>
+    <select name="duck_2">
+        {% for duck in all_ducks %}
+        <option value="{{duck.id}}">{{duck.name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <button type="submit">Start Battle</button>
+</form>
+    
+{% endblock %}

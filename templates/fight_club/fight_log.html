@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-{% for battle in all_battles %}
-<p>{{battle.winner.name}} was victorious at the battle: {{battle.duck_1.name}} VS {{battle.duck_2.name}}</p>
+<h2>Finished battles</h2>
+{% for battle in all_battles_finished %}
+<form action="/fight_club/battle/{{battle.id}}/delete" method="post">
+    <p>{{battle}}</p>
+    <button type="submit">delete battle</button>
+</form>
+{% endfor %}
+<h2>ongoing battles</h2>
+{% for battle in all_battles_ongoing %}
+<form action="/fight_club/battle/{{battle.id}}/delete" method="post">
+    <p>{{battle}}</p>
+    <button type="submit">delete battle</button>
+</form>
 {% endfor %}
 {% endblock %}

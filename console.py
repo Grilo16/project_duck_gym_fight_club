@@ -23,7 +23,7 @@ from repositories.ducks_in_classes_repository import remove_duck_from_class
 from repositories.ducks_in_classes_repository import is_duck_in_class
 
 
-from repositories.battle_repository import add_battle_result
+from repositories.battle_repository import register_battle
 from repositories.battle_repository import select_battle_by_id
 from repositories.battle_repository import select_battles_won_by_duck
 from repositories.battle_repository import select_battles_lost_by_duck
@@ -67,19 +67,19 @@ def seeding_db():
     add_duck_to_class(duck3, class4)
 
     # Adding ducky battles 
-    battle1 = add_battle_result(Battle(duck1, duck2, winner=duck2))
-    battle2 = add_battle_result(Battle(duck1, duck3, winner=duck3))
-    battle3 = add_battle_result(Battle(duck1, duck4, winner=duck1))
-    battle4 = add_battle_result(Battle(duck1, duck5, winner=duck5))
+    battle1 = register_battle(Battle(duck1, duck2, winner=duck2))
+    battle2 = register_battle(Battle(duck1, duck3, winner=duck3))
+    battle3 = register_battle(Battle(duck1, duck4, winner=duck1))
+    battle4 = register_battle(Battle(duck1, duck5, winner=duck5))
 
-    battle5 = add_battle_result(Battle(duck5, duck1, winner=duck5))
-    battle6 = add_battle_result(Battle(duck5, duck2, winner=duck5))
-    battle7 = add_battle_result(Battle(duck5, duck3, winner=duck5))
-    battle8 = add_battle_result(Battle(duck5, duck4, winner=duck5))
+    battle5 = register_battle(Battle(duck5, duck1, winner=duck5))
+    battle6 = register_battle(Battle(duck5, duck2, winner=duck5))
+    battle7 = register_battle(Battle(duck5, duck3, winner=duck5))
+    battle8 = register_battle(Battle(duck5, duck4, winner=duck5))
 
     # SEEDING ENDS
 
-# seeding_db()
+seeding_db()
 
 # ducky = select_duck_by_id(1)
 # test_duck = select_duck_by_id(6)

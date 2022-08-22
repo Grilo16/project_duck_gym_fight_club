@@ -9,4 +9,8 @@ This page will show the battles from {{duck.name}}
 {% for battle in battles_lost %}
 <p>{{battle}}</p>
 {% endfor %}
+<h2>Ongoing battles</h2>
+{% for battle in battles_ongoing %}
+<p>{{battle}} <a href="/fight_club/battle/{{battle.id}}">continue battle</a></p>
+{% endfor %}
 {% endblock %}

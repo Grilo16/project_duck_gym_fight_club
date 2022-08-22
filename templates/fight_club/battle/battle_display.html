@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Battle display page</h1>
+{{battle.duck_1.name}} vs {{battle.duck_2.name}}
+<br>
+<form action="/fight_club/battle/{{battle.id}}/decide_first_duck" method="post">
+    <input type="text" name="duck_1_id" value="{{battle.duck_1.id}}" hidden>
+    <input type="text" name="duck_2_id" value="{{battle.duck_2.id}}" hidden>
+    <button type="submit">Start round</button>
+</form>
+
+{% endblock %}

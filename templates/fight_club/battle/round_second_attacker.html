@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+Show who's attacking first
+<h1>{{attacker.name}} Turn</h1>
+<h2>Choose an attack :</h2>
+<form action="/fight_club/battle/{{battle.id}}/register_second_attack" method="post">
+{% for attack in attacker.attack_names_list %}
+<label for="{{attack}}">{{attack}}</label>
+<input type="radio" name="attack" id="{{attack}}" value="{{attack}}">
+{% endfor %}
+<input type="text" name="duck_id" value="{{attacker.id}}" hidden>
+<br>
+<button type="submit">Attack</button>
+</form>
+
+{% endblock %}

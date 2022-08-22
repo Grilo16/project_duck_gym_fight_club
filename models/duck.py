@@ -7,6 +7,9 @@ class Duck:
         self._health = health
         self.id = id
         self.attacks = self.attacks_by_attack_pow()
+        self.attack_names_list = []
+        self.attack_names()
+    
         
     @property
     def health(self):
@@ -22,17 +25,28 @@ class Duck:
         
     
     def attacks_by_attack_pow(self):
-        attacks = {"peck": 50}
+        attacks = [{"peck": 50}]
         if self.attack > 50:
-            attacks["wing attack"] = 69
+            attack = {"wing attack" : 69}
+            attacks.append(attack)
         if self.attack > 100:
-            attacks["gust"] = 100
+            attack = {"gust" : 100}
+            attacks.append(attack)
         if self.attack > 200:
-            attacks["DUCK MAXIMUM POWER"] = 999
+            attack = {"DUCK MAXIMUM POWER" : 999}
+            attacks.append(attack)
         return attacks
     
+    def attack_names(self):
+        for attack in self.attacks:
+            self.attack_names_list.append(list(attack.keys())[0])
+           
+            
+    
     def ducky_attack(self, attack_name):
-        return self.attacks[attack_name]
+        for attack in self.attacks:
+            if (list(attack.keys())[0]) == attack_name:
+                return attack[attack_name]
     
     def stat_up(self, gym_class):
         if gym_class.stat_up == "attack":
