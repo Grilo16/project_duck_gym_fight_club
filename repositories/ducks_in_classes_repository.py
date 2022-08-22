@@ -33,10 +33,21 @@ def get_classes_from_duck(duck):
             where ducks.id = %s;"""
     values = [duck.id]
     return list(map(lambda gym_class_info: Gym_class(**gym_class_info), run_sql(sql, values)))
+
+def get_classes_not_enroled_by_duck(duck):
+    sql = """select gym_classes.* from gym_classes
+            join ducks_in_classes dic
+            on gym_classes.id = dic.gym_class_id 
+            where duck_id != %s"""
+
+    values = [duck.id]
+    return list(map(lambda gym_class_info: Gym_class(**gym_class_info), run_sql(sql, values)))
+    
     
 def is_duck_in_class(duck, gym_class):
     sql = """select * from ducks_in_classes dic 
              where duck_id = %s and gym_class_id = %s"""
+             
     values = [duck.id, gym_class.id]
     results = run_sql(sql, values)
     if len(results) == 0:

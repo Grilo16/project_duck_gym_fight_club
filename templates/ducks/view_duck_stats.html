@@ -1,11 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{duck.name}}</h1>
+<h2>stats:</h2>
 <p>Duck health: {{duck.health}}</p>
 <p>Duck defense: {{duck.defense}}</p>
 <p>Duck speed: {{duck.speed}}</p>
 <p>Duck attack level: {{duck.attack}}</p>
 <p>Duck attacks: {{duck.attacks}}</p>
+<h2>Available classes</h2>
+<form action="/add/duck_to_class" method = "post">
 
-<a href="/duck/{{duck.id}}/classes">View {{duck.name}} gym  classes</a>
+    <select name="ducks">
+        {% for duck in all_ducks %}
+        <option value="{{duck.id}}">{{duck.name}}</option>
+        {% endfor %}
+    </select>
+    <select name="class">
+        {% for gym_class in duck_not_in_classes %}
+        <option value="{{gym_class.id}}">{{gym_class.name}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add duck to class</button>
+</form>
+
+
+<h2>{{duck.name}} is enroled in :</h2>
+{% for gym_class in duck_classes %}
+<p>{{gym_class.name}}</p>
+<form action="/duck/finish_class" method="post">
+    <input type="text" value="duck_stats/{{duck.id}}" name="origin" hidden>
+    <input type="text" value="{{duck.id}}" name="duck_id" hidden>
+    <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
+    <button type="submit">finish class</button>
+</form>
+{% endfor %}
 {% endblock %}

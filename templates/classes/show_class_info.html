@@ -10,5 +10,16 @@
     {{gym_class.stat_up_amount}}
 </p>
  
-<a href="/gym_class/ducks_in_class/{{gym_class.id}}">View ducks enroled in this class</a>
+<h2>Ducks enroled in class</h2>
+{% for duck in ducks_in_class %}
+<p>
+    {{duck.name}}
+</p>
+<form action="/duck/finish_class" method="post">
+    <input type="text" value="gym_class/{{gym_class.id}}" name="origin" hidden>
+    <input type="text" value="{{duck.id}}" name="duck_id" hidden>
+    <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
+    <button type="submit">finish class</button>
+</form>
+{% endfor %}
 {% endblock %}

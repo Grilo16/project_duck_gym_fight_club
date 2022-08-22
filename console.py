@@ -27,7 +27,6 @@ from repositories.battle_repository import register_battle
 from repositories.battle_repository import select_battle_by_id
 from repositories.battle_repository import select_battles_won_by_duck
 from repositories.battle_repository import select_battles_lost_by_duck
-from repositories.battle_repository import get_all_battles
 
 
 # Seeding starts 

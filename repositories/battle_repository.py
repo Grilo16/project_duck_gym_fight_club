@@ -17,9 +17,16 @@ def select_battle_by_id(id):
     values = [id]
     result = run_sql(sql, values)[0]
     print(result, "this is result")
+    
+    duck1 = select_duck_by_id(result["duck_1_id"])
+    duck2 = select_duck_by_id(result["duck_2_id"])
+    
     if result["winner"] == None:
-        return Battle(select_duck_by_id(result["duck_1_id"]), select_duck_by_id(result["duck_2_id"]), result["id"], None)
-    return Battle(select_duck_by_id(result["duck_1_id"]), select_duck_by_id(result["duck_2_id"]), result["id"], select_duck_by_id(result["winner"]))
+        return Battle(duck1, duck2, result["id"])
+    
+    winning_duck = select_duck_by_id(result["winner"])
+    
+    return Battle(duck1, duck2, result["id"], winning_duck)
 
 def get_all_finished_battles():
     sql ="SELECT * FROM battle_results WHERE winner IS NOT NULL"

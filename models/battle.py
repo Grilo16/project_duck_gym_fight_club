@@ -78,7 +78,7 @@ class Battle:
             speed_compare.append(2)
         if choice(speed_compare) == 1:
             return [self.duck_1, self.duck_2]
-        elif choice(speed_compare) == 2:
+        else: 
             return [self.duck_2, self.duck_1]
         
     

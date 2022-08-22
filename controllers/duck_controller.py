@@ -8,6 +8,7 @@ from repositories.duck_repository import select_duck_by_id
 from repositories.duck_repository import new_duck
 from repositories.duck_repository import update_duck
 from repositories.duck_repository import remove_duck
+from repositories.ducks_in_classes_repository import get_classes_from_duck, get_classes_not_enroled_by_duck
 
 duck_blueprint = Blueprint("ducks", __name__)
 
@@ -49,7 +50,9 @@ def show_ducks():
 @duck_blueprint.route("/duck_stats/<duck_id>")
 def show_duck_stats(duck_id):
     duck = select_duck_by_id(duck_id)
-    return render_template("ducks/view_duck_stats.html", duck = duck)
+    duck_classes = get_classes_from_duck(duck)
+    duck_not_in_classes = get_classes_not_enroled_by_duck(duck)
+    return render_template("ducks/view_duck_stats.html", duck = duck, duck_classes = duck_classes, duck_not_in_classes=duck_not_in_classes)
     
 @duck_blueprint.route("/create_duck", methods = ["GET"])
 def create_duck_page():
