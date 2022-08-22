@@ -18,8 +18,8 @@ ducks_in_classes_blueprint = Blueprint("ducks_in_classes", __name__)
 
 @ducks_in_classes_blueprint.route("/add/duck_to_class", methods = ["POST"])
 def add_duck_to_class_post():
-    duck = select_duck_by_id(request.form["ducks"])
-    gym_class = select_class_by_id(request.form["class"])
+    duck = select_duck_by_id(request.form["duck_id"])
+    gym_class = select_class_by_id(request.form["gym_class_id"])
     add_duck_to_class(duck, gym_class)
     return redirect(f"/{request.form['origin']}")
     

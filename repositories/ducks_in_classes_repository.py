@@ -54,3 +54,14 @@ def is_duck_in_class(duck, gym_class):
         return False
     return True
     
+    
+def get_ducks_not_enrolled_in_class(gym_class):
+    sql = """select * from ducks d
+            where d.id not in 
+            (select d.id from ducks d 
+            join ducks_in_classes dic
+            on d.id = dic.duck_id
+            where dic.gym_class_id = %s)"""
+
+    values = [gym_class.id]
+    return list(map(lambda duck_info: Duck(**duck_info), run_sql(sql, values)))
