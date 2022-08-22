@@ -35,10 +35,9 @@ def select_combatants_again():
 def verify_and_register_battle():
     duck_1 = select_duck_by_id(request.form["duck_1"])
     duck_2 = select_duck_by_id(request.form["duck_2"])
-    battle = register_battle(Battle(duck_1, duck_2))
-    
     if duck_1.id == duck_2.id:
         return redirect("/fight_club/battle/select_again")
+    battle = register_battle(Battle(duck_1, duck_2))
     return redirect(f"/fight_club/battle/{battle.id}")
 
 # Pre-round page
@@ -88,7 +87,6 @@ def battle_round_second_attack(battle_id, duck_id):
 @battle_blueprint.route("/fight_club/battle/<battle_id>/register_second_attack", methods=["POST"])
 def round_register_second_attack(battle_id):
     battle = select_battle_by_id(battle_id)
-    next_attacker = battle.duck_attack(request.form["duck_id"], request.form["attack"])
     update_duck(battle.duck_1)
     update_duck(battle.duck_2)
     if not battle.has_winner():
