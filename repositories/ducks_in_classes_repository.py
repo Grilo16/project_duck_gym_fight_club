@@ -35,10 +35,10 @@ def get_classes_from_duck(duck):
     return list(map(lambda gym_class_info: Gym_class(**gym_class_info), run_sql(sql, values)))
 
 def get_classes_not_enroled_by_duck(duck):
-    sql = """select gym_classes.* from gym_classes
-            join ducks_in_classes dic
-            on gym_classes.id = dic.gym_class_id 
-            where duck_id != %s"""
+    sql = """select * from gym_classes gc 
+            where gc.id not in( 
+            select distinct dic.gym_class_id from ducks_in_classes dic
+            where dic.duck_id = %s)"""
 
     values = [duck.id]
     return list(map(lambda gym_class_info: Gym_class(**gym_class_info), run_sql(sql, values)))

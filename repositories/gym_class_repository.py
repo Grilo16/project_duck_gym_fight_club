@@ -26,4 +26,3 @@ def remove_class(gym_class):
     sql = "DELETE FROM gym_classes WHERE id = %s"
     values = [gym_class.id]
     run_sql(sql, values)
-''

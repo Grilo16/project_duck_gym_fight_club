@@ -9,12 +9,8 @@
 <p>Duck attacks: {{duck.attacks}}</p>
 <h2>Available classes</h2>
 <form action="/add/duck_to_class" method = "post">
-
-    <select name="ducks">
-        {% for duck in all_ducks %}
-        <option value="{{duck.id}}">{{duck.name}}</option>
-        {% endfor %}
-    </select>
+    <input type="text" name="ducks" value="{{duck.id}}" hidden>
+    <input type="text" value="duck_stats/{{duck.id}}" name="origin" hidden>
     <select name="class">
         {% for gym_class in duck_not_in_classes %}
         <option value="{{gym_class.id}}">{{gym_class.name}}</option>

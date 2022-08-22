@@ -21,7 +21,7 @@ def add_duck_to_class_post():
     duck = select_duck_by_id(request.form["ducks"])
     gym_class = select_class_by_id(request.form["class"])
     add_duck_to_class(duck, gym_class)
-    return redirect("/")
+    return redirect(f"/{request.form['origin']}")
     
 @ducks_in_classes_blueprint.route("/duck/finish_class", methods=["POST"])
 def remove_duck_from_class_post():
@@ -29,7 +29,7 @@ def remove_duck_from_class_post():
     duck = select_duck_by_id(request.form["duck_id"])
     gym_class = select_class_by_id(request.form["class_id"])
     remove_duck_from_class(duck, gym_class)
-    return redirect("/"+request.form["origin"])
+    return redirect("/"+origin)
     # return redirect(f"/gym_class/ducks_in_class/{request.form['class_id']}")
 
 # Obsolete now showing on the duck stat page
