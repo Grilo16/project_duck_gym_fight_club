@@ -10,7 +10,6 @@ from repositories.duck_repository import select_duck_by_id
 from repositories.duck_repository import update_duck
 from repositories.duck_repository import remove_duck
 
-
 from repositories.gym_class_repository import get_all_classes
 from repositories.gym_class_repository import remove_class
 from repositories.gym_class_repository import select_class_by_id
@@ -27,12 +26,12 @@ def admin_page():
     return render_template("admin/admin_page.html", all_ducks=all_ducks, all_gym_classes = all_gym_classes)
 
 @admin_blueprint.route("/duck_stats/admin/<duck_id>", methods=["GET"])
-def admin_page_duck_stats(duck_id):
+def admin_page_edit_duck_get(duck_id):
     duck = select_duck_by_id(duck_id)
     return render_template("admin/edit_duck_stats_admin.html", duck=duck)
     
 @admin_blueprint.route("/duck_stats/admin/<duck_id>", methods=["POST"])
-def admin_page_edit_duck(duck_id):
+def admin_page_edit_duck_post(duck_id):
     duck = select_duck_by_id(duck_id)
     duck.name = request.form["name"]
     duck.health = int(request.form["health"])
@@ -49,7 +48,7 @@ def admin_page_delete_duck(duck_id):
 
 
 @admin_blueprint.route("/gym_class_edit/admin/<gc_id>", methods = ["GET"])
-def edit_gym_class(gc_id):
+def edit_gym_class_get(gc_id):
     gym_class = select_class_by_id(gc_id)
     return render_template("admin/edit_gym_class_admin.html", gym_class = gym_class)
 

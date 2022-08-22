@@ -2,15 +2,15 @@ from flask import Blueprint
 from flask import render_template
 from flask import redirect
 from flask import request
-from repositories.ducks_in_classes_repository import get_ducks_in_class, get_ducks_not_enrolled_in_class
+
+from repositories.ducks_in_classes_repository import get_ducks_in_class 
+from repositories.ducks_in_classes_repository import get_ducks_not_enrolled_in_class
 
 from repositories.gym_class_repository import get_all_classes
 from repositories.gym_class_repository import select_class_by_id
 from repositories.gym_class_repository import new_gym_class_for_duckies
 
 from models.gym_class import Gym_class
-
-
 
 gym_class_blueprint = Blueprint("gym_class", __name__)
 

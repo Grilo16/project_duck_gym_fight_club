@@ -9,8 +9,7 @@ class Duck:
         self.attacks = self.attacks_by_attack_pow()
         self.attack_names_list = []
         self.attack_names()
-    
-        
+ 
     @property
     def health(self):
         return self._health
@@ -20,7 +19,6 @@ class Duck:
         self._health = value
         if self._health < 0:
             self._health = 0
-        
         return self._health
         
     
@@ -41,8 +39,6 @@ class Duck:
         for attack in self.attacks:
             self.attack_names_list.append(list(attack.keys())[0])
            
-            
-    
     def ducky_attack(self, attack_name):
         for attack in self.attacks:
             if (list(attack.keys())[0]) == attack_name:

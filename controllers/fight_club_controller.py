@@ -6,9 +6,11 @@ from flask import redirect
 from repositories.duck_repository import get_all_ducks
 from repositories.duck_repository import select_duck_by_id
 
-
-from repositories.battle_repository import delete_battle_by_object, get_all_finished_battles, get_all_ongoing_battles, select_battle_by_id, select_battles_ongoing_by_duck
-from repositories.battle_repository import register_battle
+from repositories.battle_repository import get_all_finished_battles
+from repositories.battle_repository import get_all_ongoing_battles 
+from repositories.battle_repository import select_battle_by_id
+from repositories.battle_repository import select_battles_ongoing_by_duck 
+from repositories.battle_repository import delete_battle_by_object 
 from repositories.battle_repository import select_battles_won_by_duck
 from repositories.battle_repository import select_battles_lost_by_duck
 

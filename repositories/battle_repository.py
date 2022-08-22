@@ -9,23 +9,17 @@ def register_battle(battle):
     else:
         values = [battle.duck_1.id, battle.duck_2.id, battle.winner]
     battle.id= run_sql(sql, values)[0][0]
-    print(battle.__dict__)
     return battle
         
 def select_battle_by_id(id):
     sql = "SELECT * FROM battle_results WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
-    print(result, "this is result")
-    
+    result = run_sql(sql, values)[0]    
     duck1 = select_duck_by_id(result["duck_1_id"])
     duck2 = select_duck_by_id(result["duck_2_id"])
-    
     if result["winner"] == None:
         return Battle(duck1, duck2, result["id"])
-    
     winning_duck = select_duck_by_id(result["winner"])
-    
     return Battle(duck1, duck2, result["id"], winning_duck)
 
 def get_all_finished_battles():

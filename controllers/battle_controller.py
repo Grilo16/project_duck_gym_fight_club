@@ -5,12 +5,13 @@ from flask import request
 
 from models.battle import Battle
 
-
-from repositories.duck_repository import select_duck_by_id, update_duck
+from repositories.duck_repository import update_duck
+from repositories.duck_repository import select_duck_by_id
 from repositories.duck_repository import get_all_ducks
 
-from repositories.battle_repository import register_battle, select_battle_by_id, update_battle
-
+from repositories.battle_repository import update_battle
+from repositories.battle_repository import select_battle_by_id
+from repositories.battle_repository import register_battle
 
 battle_blueprint = Blueprint("battle", __name__)
 
