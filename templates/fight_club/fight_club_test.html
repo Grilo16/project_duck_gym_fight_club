@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>What is the first rule of duck fight club?</h1>
 
+<h1>What is the first rule of duck fight club?</h1>
+<br>
 <form action="/fight_club" method="post">
-    <input type="text" name="answer" value="You do not quack about duck fight club">
+    <input id="first-rule-of-fight-club" type="text" name="answer" value="You do not quack about duck fight club">
     <button type="submit">Submit answer</button>
 </form>
 {% endblock %}

@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+<br>
 <h1>Wellcome to duck fight club quack!</h1>
-<p>
-    <a href="/fight_club/fight_log">view fight log</a>
-</p>
-<p>
-    <a href="/fight_club/battle/select_combatants">start a battle</a>
-</p>
+<hr>
+<h2>View Battles from a duck</h2>
 <form action="/fight_club/battles" method="post">
     <select name="duck" id="">
         {% for duck in all_ducks %}
@@ -16,6 +13,27 @@
         {% endfor %}
     </select>
     <button type="submit">view battles</button>
-
+    
 </form>
+<hr>
+
+<div class="fight-club-links">
+
+    <div>
+        <form action="/fight_club/fight_log">
+            <button type="submit">View fight log</button>
+            <input type="submit" value="View fight log">
+        </form>
+        <p>
+            <a href="/fight_club/fight_log">view fight log</a>
+        </p>
+    </div>
+    <div>
+
+    <p>
+        <a href="/fight_club/battle/select_combatants">start a battle</a>
+    </p>
+</div>
+
+</div>
 {% endblock %}

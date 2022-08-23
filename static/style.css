@@ -171,8 +171,14 @@ button {
 }
 
 
+#first-rule-of-fight-club {
+    width: 420px;
+}
 
-
+.fight-club-links {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 
 
