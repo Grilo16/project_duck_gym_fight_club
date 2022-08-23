@@ -70,6 +70,19 @@ button {
     padding-bottom: 3rem; 
 }
 
+.duck-image {
+    border-radius: 25px;
+}
+
+.edit-duck-image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 60%;
+    margin-left: 20%
+}
+
+
+
 .duckery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
