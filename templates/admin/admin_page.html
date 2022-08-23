@@ -2,27 +2,55 @@
 {% block content %}
 <h1>this will be the admin page</h1>
 <h2>Ducks registered</h2>
+<div class="duckery">
 {% for duck in all_ducks %}
-<p>
-    {{duck.name}} <a href="/duck_stats/admin/{{duck.id}}">Edit stats</a>
-    <form action="/admin/delete/duck/{{duck.id}}" method="post">
-        <button type="submit">delete duck</button>
-    </form> 
-</p>
+    <div class="show-duck">
+        <br>
+        <img src="https://via.placeholder.com/150" alt="">
+    
+
+        <p>{{duck.name}}</p>
+    <div class="buttons">
+
+        <form action="/duck_stats/admin/{{duck.id}}">
+            <button>Edit duck</button>
+        </form>
+        <form action="/admin/delete/duck/{{duck.id}}" method="post">
+            <button type="submit">Delete duck</button>
+        </form> 
+    </div>
+</div>
 {% endfor %}
+</div>
 <form action="/create_duck">
     <button>Create duck</button>
 </form>
 <br>
+
+
 <h2>Gym classes</h2>
-{% for gym_class in all_gym_classes %}
-<p>
-    {{gym_class.name}} <a href="/gym_class_edit/admin/{{gym_class.id}}">edit gym class</a> 
+<div class="all-gym-classes">
+    {% for gym_class in all_gym_classes %}
+    <div class="show-gym-class">
+    <h2>{{gym_class.name}}</h2>
+    <h3>Increases {{gym_class.stat_up}} by:</h3>
+    <h3>{{gym_class.stat_up_amount}}</h3>
+    
+    <div class="buttons">
+    <form action="/gym_class_edit/admin/{{gym_class.id}}">
+        <button>edit gym class</button>
+    </form>
+    
     <form action="/admin/delete/{{gym_class.id}}" method="post">
         <button>delete gym class</button>
     </form>
-</p>
-{% endfor %}
+    
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+
 <form action="/create_class">
     <input type="text" value="admin" hidden>
     <button type="submit">Create new gym class</button>

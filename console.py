@@ -78,7 +78,7 @@ def seeding_db():
 
     # SEEDING ENDS
 
-seeding_db()
+# seeding_db()
 
 # ducky = select_duck_by_id(1)
 # test_duck = select_duck_by_id(6)
@@ -98,3 +98,4 @@ seeding_db()
 # list(map(lambda item : print(item.__dict__) ,get_all_ducks()))
 # list(map(lambda item : print(item.__dict__) ,get_all_classes()))
 # list(map(lambda item : print(item.__dict__) ,get_all_battles()))
+

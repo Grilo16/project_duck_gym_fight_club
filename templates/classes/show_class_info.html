@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<p>
-    {{gym_class.name}}
-</p>
-<p>
-    {{gym_class.stat_up}}
-</p>
-<p>
-    {{gym_class.stat_up_amount}}
-</p>
+<br>
+<h1>Welcome to :</h1>
+<div class="display-class-card">
+
+    <h2>
+        {{gym_class.name}}
+    </h2>
+    <p>
+        Finishing increases :
+        {{gym_class.stat_up}}
+    </p>
+    <p>
+        by :
+        {{gym_class.stat_up_amount}}
+    </p>
+</div>
+<hr>
+{% if ducks_not_enroled|count < 1 %}
+<h3>all ducks are enroled in this class</h3>
+{% endif %}
+
+{% if ducks_not_enroled|count > 0 %}
 <h2>Enrol a duck</h2>
 <form action="/add/duck_to_class" method = "post">
     <input type="text" value="gym_class/{{gym_class.id}}" name="origin" hidden>
@@ -20,18 +33,38 @@
     </select>
     <button type="submit">Add duck to class</button>
 </form>
+{% endif %}
+<hr>
 
+{% if ducks_in_class | count < 1 %}
+<h3>There are no ducks enroled in this class</h3>
+{% endif %}
 
+{% if ducks_in_class | count > 0 %}
 <h2>Ducks enroled in class</h2>
-{% for duck in ducks_in_class %}
-<p>
-    {{duck.name}}
-</p>
-<form action="/duck/finish_class" method="post">
-    <input type="text" value="gym_class/{{gym_class.id}}" name="origin" hidden>
-    <input type="text" value="{{duck.id}}" name="duck_id" hidden>
-    <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
-    <button type="submit">finish class</button>
-</form>
-{% endfor %}
-{% endblock %}
+<div class="duckery">
+    {% for duck in ducks_in_class %}
+    <div class="show-duck">
+        <br>
+        <img src="https://via.placeholder.com/150" alt="">
+        <p>
+            {{duck.name}} 
+        </p>
+        <div class="buttons">
+            
+            <form action="/duck_stats/{{duck.id}}">
+
+            <button>View stats</button>
+        </form>
+        <form action="/duck/finish_class" method="post">
+            <input type="text" value="gym_class/{{gym_class.id}}" name="origin" hidden>
+            <input type="text" value="{{duck.id}}" name="duck_id" hidden>
+            <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
+            <button type="submit">finish class</button>
+        </div>
+    </div>
+        </form>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endblock %}

@@ -1,14 +1,98 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{duck.name}}</h1>
-<h2>stats:</h2>
-<p>Duck health: {{duck.health}}</p>
-<p>Duck defense: {{duck.defense}}</p>
-<p>Duck speed: {{duck.speed}}</p>
-<p>Duck attack level: {{duck.attack}}</p>
-<p>Duck attacks: {{duck.attacks}}</p>
+<div class="duck-name">
+    <h1>{{duck.name}}</h1>
+</div>
+<hr>
+<div class="duck-stats-parent">
+    <div class="duck-picture">
+        <br>
+        <img src="https://via.placeholder.com/320" alt="">
+    </div>
+    <div class="duck-stats">
+        <h2>Duck stats:</h2>
+        <table class="stat-table">
+            <tr>
+                <td><h3 class="stat-name">Duck health</h3></td>
+                <td><h3 class="stat-amount">{{duck.health}}</h3></td>
+            </tr>
+            <tr>
+                <td><h3 class="stat-name">Duck defense</h3></td>
+                <td><h3 class="stat-amount">{{duck.defense}}</h3></td>
+            </tr>
+            <tr>
+                <td><h3 class="stat-name">Duck speed</h3></td>
+                <td><h3 class="stat-amount">{{duck.speed}}</h3></td>
+            </tr>
+            <tr>
+                <td><h3 class="stat-name">Duck attack</h3></td>
+                <td><h3 class="stat-amount">{{duck.attack}}</h3></td>
+            </tr>
+        </table>
+    </div>
+        <div class="duck-attacks">
+            <h2>Duck attacks:</h2>
+        <table class="attack-table">
+            <th>
+                <h3 class="attack-name">Attack Name</h3>
+            </th>
+            <th>
+                <h3 class="attack-power">Attack Power</h3>
+            </th>
+            {% for attack_dict in duck.attacks %}
+            {% for key, value in attack_dict.items() %}
+            <tr>
+                <td>
+                    <h3 class="attack-name">{{key}}</h3>
+                </td>
+                <td>
+                    <h3 class="attack-power">{{value}}</h3>
+                </td>
+            </tr>
+
+    </div>
+</div>
+{% endfor %}
+{% endfor %}
+</table>
+
+</div>
+</div>
+<hr>
+{% if duck_classes | count == 0 %}
+<h3>{{duck.name}} is not enroled in any classes</h3>
+{% endif %}
+{% if duck_classes | count > 0 %}
+<h2>{{duck.name}} is enroled in :</h2>
+<div class="all-gym-classes">
+    {% for gym_class in duck_classes %}
+    <div class="show-gym-class">
+        <h2>{{gym_class.name}}</h2>
+        <h3>Increases {{gym_class.stat_up}} by:</h3>
+        <h3>{{gym_class.stat_up_amount}}</h3>
+
+        <div class="buttons">
+        <form action="/duck/finish_class" method="post">
+            <input type="text" value="duck_stats/{{duck.id}}" name="origin" hidden>
+            <input type="text" value="{{duck.id}}" name="duck_id" hidden>
+            <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
+            <button type="submit">finish class</button>
+        </form>
+                <form action="/gym_class/{{gym_class.id}}">
+                    <button>View gym class</button>
+                </form>
+    </div>
+    </div>
+
+    </form>
+    {% endfor %}
+</div>
+{% endif %}
+
+<hr>
+{% if duck_not_in_classes| count > 0 %}
 <h2>Available classes</h2>
-<form action="/add/duck_to_class" method = "post">
+<form action="/add/duck_to_class" method="post">
     <input type="text" name="duck_id" value="{{duck.id}}" hidden>
     <input type="text" value="duck_stats/{{duck.id}}" name="origin" hidden>
     <select name="gym_class_id">
@@ -18,16 +102,8 @@
     </select>
     <button type="submit">Add duck to class</button>
 </form>
-
-
-<h2>{{duck.name}} is enroled in :</h2>
-{% for gym_class in duck_classes %}
-<p>{{gym_class.name}}</p>
-<form action="/duck/finish_class" method="post">
-    <input type="text" value="duck_stats/{{duck.id}}" name="origin" hidden>
-    <input type="text" value="{{duck.id}}" name="duck_id" hidden>
-    <input type="text" value="{{gym_class.id}}" name="class_id" hidden>
-    <button type="submit">finish class</button>
-</form>
-{% endfor %}
+{% endif %}
+{% if duck_not_in_classes|count == 0 %}
+<h2>This duck is currently enroled in all available classes</h2>
+{% endif %}
 {% endblock %}

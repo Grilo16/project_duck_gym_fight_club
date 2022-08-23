@@ -10,7 +10,10 @@
         <p>
             {{duck.name}} 
         </p>
-            <a href="/duck_stats/{{duck.id}}">View stats</a>
+        <form action="/duck_stats/{{duck.id}}">
+
+            <button>View stats</button>
+        </form>
     </div>
         {% endfor %}
 </div>
