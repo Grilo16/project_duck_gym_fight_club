@@ -1,11 +1,12 @@
 class Duck:
-    def __init__(self, name, attack, defense, speed, health, id = None):
+    def __init__(self, name, attack, defense, speed, health, id = None, image = None):
         self.name = name
         self.attack = attack
         self.defense = defense
         self.speed = speed
         self._health = health
         self.id = id
+        self.image = image
         self.attacks = self.attacks_by_attack_pow()
         self.attack_names_list = []
         self.attack_names()

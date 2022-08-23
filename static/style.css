@@ -30,6 +30,13 @@ h1 {
     margin: 0;
 }
 
+nav>a {
+    margin-left: 30px;
+    margin-right: 70px;
+    color: white;
+    text-decoration: none;
+}
+
 button {
     border-radius: 10px;
 }
@@ -170,15 +177,79 @@ button {
 
 }
 
-
 #first-rule-of-fight-club {
     width: 420px;
 }
+
 
 .fight-club-links {
     display: flex;
     justify-content: space-evenly;
 }
+
+.game-display-container {
+    height:800px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: rgb(55, 57, 58); 
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+
+.duck-fighter-1{
+    margin-right: 11%;
+    margin-top: 150px;
+    height: 510px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgb(246, 174, 45);
+}
+
+.duck-fighter-2{
+    margin-right: 11%;
+    margin-top: 150px;
+    height: 510px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgb(246, 174, 45);
+}
+
+.attack-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    width: 25%;
+    margin-left: 36%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

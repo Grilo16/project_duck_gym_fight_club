@@ -56,6 +56,7 @@ def start_battle_post(battle_id):
     second_duck = duck_order[1]
     return redirect(f"/fight_club/battle/{battle.id}/attack/{first_duck.id}/{second_duck.id}")
 
+
 # First duck attack choice
 @battle_blueprint.route("/fight_club/battle/<battle_id>/attack/<first_duck_id>/<second_duck_id>")
 def battle_round_first_attack(battle_id, first_duck_id, second_duck_id):
@@ -74,6 +75,8 @@ def round_register_first_attack(battle_id):
         return redirect(f"/fight_club/battle/{battle.id}/battle_round/second_attacker/{next_attacker.id}")
     else:
         update_battle(battle)
+        update_duck(battle.duck_1)
+        update_duck(battle.duck_2)
         return redirect(f"/fight_club/battle/{battle.id}/results")
    
 # Attacker 2 stuff here
@@ -87,14 +90,25 @@ def battle_round_second_attack(battle_id, duck_id):
 @battle_blueprint.route("/fight_club/battle/<battle_id>/register_second_attack", methods=["POST"])
 def round_register_second_attack(battle_id):
     battle = select_battle_by_id(battle_id)
+    battle.duck_attack(request.form["duck_id"], request.form["attack"])
+    
     update_duck(battle.duck_1)
     update_duck(battle.duck_2)
     if not battle.has_winner():
-        return redirect(f"/fight_club/battle/{battle.id}")
+        return redirect(f"/fight_club/battle/{battle.id}/continue")
     else:
         update_battle(battle)
         return redirect(f"/fight_club/battle/{battle.id}/results")
+
+@battle_blueprint.route("/fight_club/battle/<battle_id>/continue")
+def continue_battle_post(battle_id):
+    battle = select_battle_by_id(battle_id)
+    duck_order = battle.round_attack_order()
+    first_duck = duck_order[0] 
+    second_duck = duck_order[1]
+    return redirect(f"/fight_club/battle/{battle.id}/attack/{first_duck.id}/{second_duck.id}")    
     
+
 @battle_blueprint.route("/fight_club/battle/<battle_id>/results")
 def show_battle_results(battle_id):
     battle = select_battle_by_id(battle_id)

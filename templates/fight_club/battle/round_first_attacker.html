@@ -1,27 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
-Show who's attacking first
-<h1>{{first_attacker.name}} Turn</h1>
-<h2>Choose an attack :</h2>
-<form action="/fight_club/battle/{{battle.id}}/register_first_attack" method="post">
-{% for attack in first_attacker.attack_names_list %}
-<label for="{{attack}}">{{attack}}</label>
-<input type="radio" name="attack" id="{{attack}}" value="{{attack}}">
-{% endfor %}
-<input type="text" name="duck_id" value="{{first_attacker.id}}" hidden>
 <br>
-<input type="text" name="next_duck_id" value="{{second_attacker.id}}" hidden>
-<button type="submit">Attack</button>
-</form>
+<h1>{{first_attacker.name}}'s Turn</h1>
 
-<!-- <br>
-first attacker: 
-<br>
-{{first_attacker.name}}
-<br>
-second attacker: 
-<br>
-{{second_attacker.name}}
-<br>
-{{battle}} -->
+<div class="game-display-container">
+    <br>
+    
+    <div class="duck-fighter-1">
+        <br>
+        <img src={{battle.duck_1.image}} alt="" height="200" width="200">
+
+        
+        <hr>
+            <h2>{{battle.duck_1.name}}</h2>
+            <hr>
+            <h2>attack: {{battle.duck_1.attack}}</h2>
+            <h2>defense: {{battle.duck_1.defense}}</h2>
+            <h2>speed: {{battle.duck_1.speed}}</h2>
+            <h2>health: {{battle.duck_1.health}}</h2>
+        </div>
+    
+        <div class="duck-fighter-2">
+            <br>
+            <img src={{battle.duck_2.image}} alt="" height="200" width="200">
+            
+            <hr>
+                <h2>{{battle.duck_2.name}}</h2>
+                <hr>
+                <h2>attack: {{battle.duck_2.attack}}</h2>
+                <h2>defense: {{battle.duck_2.defense}}</h2>
+                <h2>speed: {{battle.duck_2.speed}}</h2>
+                <h2>health: {{battle.duck_2.health}}</h2>
+        </div>
+    
+    </div>
+    
+    <br>
+    
+    <h2>{{first_attacker.name}} Choose an attack :</h2>
+    <form action="/fight_club/battle/{{battle.id}}/register_first_attack" method="post">
+        <div class="attack-container">
+        
+        {% for attack in first_attacker.attack_names_list %}
+    <div class="attack">
+
+        <button name="attack" id="{{attack}}" value="{{attack}}">{{attack}}</button>
+    </div>
+        {% endfor %}
+        
+        <input type="text" name="duck_id" value="{{first_attacker.id}}" hidden>
+        <br>
+        
+        <input type="text" name="next_duck_id" value="{{second_attacker.id}}" hidden>
+        
+</form>
+</div>
 {% endblock %}

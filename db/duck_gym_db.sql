@@ -9,7 +9,8 @@ CREATE TABLE ducks (
     attack INT,
     defense INT,
     speed INT,
-    health INT
+    health INT,
+    image VARCHAR
 );
 
 CREATE TABLE gym_classes (

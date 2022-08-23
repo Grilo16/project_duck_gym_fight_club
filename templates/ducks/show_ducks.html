@@ -6,7 +6,8 @@
     {% for duck in all_ducks %}
     <div class="show-duck">
         <br>
-        <img src="https://via.placeholder.com/150" alt="">
+        <img src={{duck.image}} alt="" height="150" width="150">
+    
         <p>
             {{duck.name}} 
         </p>

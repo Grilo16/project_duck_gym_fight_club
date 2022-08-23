@@ -3,36 +3,37 @@
 <br>
 <h1>Wellcome to duck fight club quack!</h1>
 <hr>
-<h2>View Battles from a duck</h2>
-<form action="/fight_club/battles" method="post">
-    <select name="duck" id="">
-        {% for duck in all_ducks %}
-        <option value="{{duck.id}}">
-            {{duck.name}}
-        </option>
-        {% endfor %}
-    </select>
-    <button type="submit">view battles</button>
-    
-</form>
-<hr>
+<div>
+    <form action="/fight_club/battle/select_combatants">
+        <button type="submit">Start a battle</button>
+    </form>
+</div>
+
+    <hr>
 
 <div class="fight-club-links">
 
     <div>
         <form action="/fight_club/fight_log">
             <button type="submit">View fight log</button>
-            <input type="submit" value="View fight log">
         </form>
-        <p>
-            <a href="/fight_club/fight_log">view fight log</a>
-        </p>
     </div>
-    <div>
+ 
+<div>
 
-    <p>
-        <a href="/fight_club/battle/select_combatants">start a battle</a>
-    </p>
+        
+    <form action="/fight_club/battles" method="post">
+        <button type="submit">view battles from :</button>
+        <select name="duck" id="">
+            {% for duck in all_ducks %}
+            <option value="{{duck.id}}">
+                {{duck.name}}
+            </option>
+            {% endfor %}
+        </select>
+        
+</span>
+
 </div>
 
 </div>

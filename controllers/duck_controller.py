@@ -22,6 +22,7 @@ def show_ducks():
 @duck_blueprint.route("/duck_stats/<duck_id>")
 def show_duck_stats(duck_id):
     duck = select_duck_by_id(duck_id)
+    print(duck.image)
     duck_classes = get_classes_from_duck(duck)
     duck_not_in_classes = get_classes_not_enroled_by_duck(duck)
     return render_template("ducks/view_duck_stats.html", duck = duck, duck_classes = duck_classes, duck_not_in_classes=duck_not_in_classes)

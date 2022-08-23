@@ -32,12 +32,12 @@ from repositories.battle_repository import select_battles_lost_by_duck
 # Seeding starts 
 def seeding_db():
     # Add ducks
-    duck1 = new_duck(Duck("Ducky", 42, 69, 3, 690))
-    duck2 = new_duck(Duck("Psyduck", 69, 96, 1, 420))
-    duck3 = new_duck(Duck("Donald", 105, 69, 4, 210))
-    duck4 = new_duck(Duck("Shanda Duckyleer", 210, 69, 2,  1000))
-    duck5 = new_duck(Duck("Eric The Master Duck", 420, 690, 10, 1000))
-    duck6 = new_duck(Duck("test duck", 0, 0, 0, 100))
+    duck1 = new_duck(Duck("Ducky", 42, 69, 3, 690, image="\\static\\ducks\\rdbp-gallery-14.png"))
+    duck2 = new_duck(Duck("Psyduck", 69, 96, 1, 420, image="\\static\\ducks\\rdbp-gallery-12.png"))
+    duck3 = new_duck(Duck("Donald", 105, 69, 4, 210, image="\\static\\ducks\\rdbp-gallery-11.png"))
+    duck4 = new_duck(Duck("Shanda Duckyleer", 210, 69, 2,  1000, image="\\static\\ducks\\rdbp-gallery-16.png"))
+    duck5 = new_duck(Duck("Eric The Master Duck", 420, 690, 10, 1000, image="\\static\\ducks\\rdbp-gallery-9.png"))
+    duck6 = new_duck(Duck("test duck", 0, 0, 0, 100, image="\\static\\ducks\\rdbp-gallery-17.png"))
     
 
     # Add gym classes
@@ -78,7 +78,7 @@ def seeding_db():
 
     # SEEDING ENDS
 
-# seeding_db()
+seeding_db()
 
 # ducky = select_duck_by_id(1)
 # test_duck = select_duck_by_id(6)
