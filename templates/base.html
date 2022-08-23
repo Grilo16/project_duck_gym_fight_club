@@ -3,29 +3,34 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duck Gym</title>
 </head>
 <body>
-    <nav>
+    <nav id="top-menu-bar">
         <a href="/">homepage</a>
         <a href="/all_ducks">Show ducks</a>
         <a href="/all_classes">Show classes</a>
         <a href="/fight_club">fight club</a>
         <a href="/admin">Admin page</a>
     </nav>
-    <main>
-        {% block content %}
-    
-        {% endblock %}
-    </main>
-<footer>
-    <hr>
-    <p>duck fight footer</p>
-</footer>
-    
-</body>
+
+
+    <div id="page-container">
+        <br>
+        <div id="content-wrap">
+            <!-- all other page content -->
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+        <br>
+        <footer id="footer">
+            <p>duck fight footer</p>
+        </footer>
+    </div>
+</body>    
 </html>

@@ -1,5 +1,4 @@
 #all-colors{
-    display: flex;
     
 }
 
@@ -23,6 +22,81 @@
     background-color: rgb(238, 252, 252);
 }
 
-footer {
-    position:fixed
+body {
+    margin: 0;
+    text-align: center; 
+    font-family: "Ubuntu";
+    color: rgb(238, 252, 252);
+    
+}
+h1 {
+    margin: 0;
+    
+}
+
+#top-menu-bar {
+    background-color: rgb(73, 82, 131);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom-style: solid;
+    border-width: 3px;
+    border-color: rgb(248, 148, 18);
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    background-color: rgb(55, 57, 58); 
+}
+
+#content-wrap {
+    width: 95%;
+    margin-left: 2.25%;
+    margin-bottom: 5%;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(248, 148, 18);
+    
+    
+    background-color: rgb(73, 82, 131);
+    padding-bottom: 3rem;    /* Footer height */
+}
+/* background-color: rgb(246, 174, 45); */
+
+.duckery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin: 5px;
+}
+
+.show-duck {
+    height: 250px;
+    border-style: solid;
+    border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(73, 82, 131);
+    height: 3rem;            /* Footer height */
+    border-top-style: solid;
+    border-width: 3px;
+    border-color: rgb(248, 148, 18);
 }

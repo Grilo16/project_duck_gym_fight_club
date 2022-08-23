@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for duck in all_ducks %}
-<p>
-    {{duck.name}} <a href="/duck_stats/{{duck.id}}">View stats</a>
-</p>
-{% endfor %}
-<form action="/create_duck">
+<h1>Duckery</h1>
+<div class="duckery">
+    {% for duck in all_ducks %}
+    <div class="show-duck">
+        <br>
+        <img src="https://via.placeholder.com/150" alt="">
+        <p>
+            {{duck.name}} 
+        </p>
+            <a href="/duck_stats/{{duck.id}}">View stats</a>
+    </div>
+        {% endfor %}
+</div>
+    <form action="/create_duck">
     <button>Create duck</button>
 </form>
 {% endblock %}
