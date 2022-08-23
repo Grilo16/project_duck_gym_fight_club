@@ -4,6 +4,16 @@
 <form action="/create_duck" method = "post">
     <input type="text" name="duck_name">
     <button type="submit">Create new duck</button>
-</form>
+    <br>
+<hr>
+<br>
+<h2>Choose a duck </h2>
+{% for picture in duck_pictures %}
 
+<input type="radio" name="duck_image" value="{{picture}}">
+    <img src="/static/ducks/{{picture}}" height="150" width="150" alt="">
+
+{% endfor %}
+
+</form>
 {% endblock %}

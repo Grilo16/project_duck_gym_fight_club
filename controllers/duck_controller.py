@@ -12,6 +12,9 @@ from repositories.duck_repository import new_duck
 from repositories.ducks_in_classes_repository import get_classes_from_duck
 from repositories.ducks_in_classes_repository import get_classes_not_enroled_by_duck
 
+duck_pictures = ['rdbp-gallery-1.png', 'rdbp-gallery-2.png', 'rdbp-gallery-3.png', 'rdbp-gallery-4.png', 'rdbp-gallery-5.png', 'rdbp-gallery-6.png', 'rdbp-gallery-7.png', 'rdbp-gallery-8.png', 'rdbp-gallery-9.png', 'rdbp-gallery-10.png', 'rdbp-gallery-11.png', 'rdbp-gallery-12.png', 'rdbp-gallery-13.png', 'rdbp-gallery-14.png', 'rdbp-gallery-15.png', 'rdbp-gallery-16.png', 'rdbp-gallery-17.png', 'rdbp-gallery-18.png', 'rdbp-gallery-19.png', 'rdbp-gallery-20.png']
+
+
 duck_blueprint = Blueprint("ducks", __name__)
 
 @duck_blueprint.route("/all_ducks")
@@ -29,10 +32,10 @@ def show_duck_stats(duck_id):
     
 @duck_blueprint.route("/create_duck", methods = ["GET"])
 def create_duck_page():
-    return render_template("ducks/create_duck.html")
+    return render_template("ducks/create_duck.html", duck_pictures = duck_pictures)
 
 @duck_blueprint.route("/create_duck", methods = ["POST"])
 def save_new_duck():
-    new_duck(Duck(request.form["duck_name"], 0, 0, 0, 100))
+    new_duck(Duck(request.form["duck_name"], 0, 0, 0, 100, image = request.form["duck_image"]))
     return redirect("/all_ducks")
 

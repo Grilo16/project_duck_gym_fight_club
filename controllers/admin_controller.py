@@ -3,6 +3,7 @@ from flask import render_template
 from flask import redirect
 from flask import request
 
+
 from models.gym_class import Gym_class
 
 from repositories.duck_repository import get_all_ducks
@@ -14,6 +15,8 @@ from repositories.gym_class_repository import get_all_classes
 from repositories.gym_class_repository import remove_class
 from repositories.gym_class_repository import select_class_by_id
 from repositories.gym_class_repository import update_gym_class
+
+duck_pictures = ['rdbp-gallery-1.png', 'rdbp-gallery-2.png', 'rdbp-gallery-3.png', 'rdbp-gallery-4.png', 'rdbp-gallery-5.png', 'rdbp-gallery-6.png', 'rdbp-gallery-7.png', 'rdbp-gallery-8.png', 'rdbp-gallery-9.png', 'rdbp-gallery-10.png', 'rdbp-gallery-11.png', 'rdbp-gallery-12.png', 'rdbp-gallery-13.png', 'rdbp-gallery-14.png', 'rdbp-gallery-15.png', 'rdbp-gallery-16.png', 'rdbp-gallery-17.png', 'rdbp-gallery-18.png', 'rdbp-gallery-19.png', 'rdbp-gallery-20.png']
 
 
 
@@ -28,7 +31,7 @@ def admin_page():
 @admin_blueprint.route("/duck_stats/admin/<duck_id>", methods=["GET"])
 def admin_page_edit_duck_get(duck_id):
     duck = select_duck_by_id(duck_id)
-    return render_template("admin/edit_duck_stats_admin.html", duck=duck)
+    return render_template("admin/edit_duck_stats_admin.html", duck=duck, duck_pictures=duck_pictures)
     
 @admin_blueprint.route("/duck_stats/admin/<duck_id>", methods=["POST"])
 def admin_page_edit_duck_post(duck_id):
@@ -38,6 +41,7 @@ def admin_page_edit_duck_post(duck_id):
     duck.attack = int(request.form["attack"])
     duck.defense = int(request.form["defense"])
     duck.speed = int(request.form["speed"])
+    duck.image = request.form["duck_image"]
     update_duck(duck)
     return redirect("/admin")
 
