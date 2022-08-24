@@ -70,6 +70,9 @@ button {
     padding-bottom: 3rem; 
 }
 
+
+
+
 .duck-image {
     border-radius: 25px;
 }
@@ -201,6 +204,8 @@ button {
 }
 
 .game-display-container {
+    border-style: solid;
+    border-color:rgb(246, 174, 45) ;
     height:800px;
     width: 90%;
     margin-left: 5%;
@@ -260,22 +265,130 @@ button {
 
 .animation-container {
     display: flex;
-    justify-content: space-around ;
+    font-size: 20pt;
 }
 
-.test-animation {
-    border-style: solid;
-    animation-name: bounce;
-    animation-duration: 5s;
+
+.duck-image-card{
+    position:absolute;
+    top: 36px;
+    left: 37px;
+    border-radius: 30%;
+    border-top-left-radius: 50%;
 }
 
-@keyframes duck-attack {
-    0% {background-color: aqua;}
-    25% {background-color: black;}
-    50% {background-color: cadetblue;}
-    75% {background-color: brown;}
-    100% {background-color: aqua;}
+.background-card-image{
+    position:absolute;
+    width: 40px;
 }
+.duck-stats-card {
+    position:absolute;
+    top: 90px;
+    left: 80px;
+}
+
+.duck-card-name {
+    font-size: 12pt;
+    color: black;
+    position:absolute;
+    top: 325px;
+    left: 69px;
+    width: 300px;
+    text-align: center;
+
+}
+
+.duck-card-attack {
+    position:absolute;
+    top: 385px;
+    left: 178px;
+    color: black;
+    
+}
+
+.duck-card-defense {
+    position:absolute;
+    top: 445px;
+    left: 169px;
+    color: black;
+
+}
+
+.duck-card-health {
+    position:absolute;
+    top: 540px;
+    left: 304px;
+
+}
+
+.duck-card-speed {
+    position:absolute;
+
+    top: 540px;
+    left: 51px;
+     
+
+}
+
+.attack-player-1-animation:active {
+    margin-top:5%;
+    left: 15%;
+    position:absolute;
+    animation-name: duck-attack-p1;
+    animation-duration: 1s;
+}
+
+
+.attack-player-1-animation {
+    margin-top:5%;
+    left: 15%;
+    position:absolute;
+}
+
+
+.attack-player-1-animation-no {
+    margin-top:5%;
+    left: 15%;
+    position:absolute;
+}
+
+
+
+
+.attack-player-2-animation:active {
+    margin-top:5%;
+    left: 58%;
+    position:absolute;
+    animation-name: duck-attack-p2;
+    animation-duration: 1s;
+}
+.attack-player-2-animation {
+    margin-top:5%;
+    left: 58%;
+    position:absolute;
+    animation-duration: 1s;
+}
+
+.attack-player-2-animation-no {
+    margin-top:5%;
+    left: 58%;
+    position:absolute;
+}
+
+@keyframes duck-attack-p1 {
+    
+    0% {margin-left: 0%;}
+    50% {margin-left: 30%;}
+    100% {margin-left: 0%;}
+}
+
+@keyframes duck-attack-p2 {
+    
+    0% {margin-left: -0%;}
+    50% {margin-left: -30%;}
+    100% {margin-left: -0%;}
+}
+
 
 
 @keyframes bounce {

@@ -41,4 +41,6 @@ def save_new_duck():
 
 @duck_blueprint.route("/test")
 def stek():
-    return render_template("test.html", duck_pictures = get_all_ducks())
+    duck1 = select_duck_by_id(2)
+    duck2 = select_duck_by_id(5)
+    return render_template("test.html", duck1=duck1, duck2=duck2)

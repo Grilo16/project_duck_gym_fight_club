@@ -2,17 +2,185 @@
 
 {% block loop %}
 <h2>adsklfjadslkfj</h2>
-<div class="animation-container">
+<div class="game-display-container">
 
-    <div class="test-animation">
-        <h2>card1</h2>
-    </div>
-    <div class="test-animation">
-        <h2>card2</h2>
+<div class="animation-container">
+    
+    <div class="attack-player-1-animation">
+        
+        <div class="duck-image-card">
+            <img src="\static\ducks\{{duck1.image}}" alt="" height="290" width="290" class="duck-image">
+        </div>
+            
+        <div class="background-card-image">
+
+            <img src="/static/m89ivklbb5u61.png"  width="450" alt="">
+        </div>
+        
+        <div class="duck-card-name">
+            <h2>{{duck1.name}}</h2>
+            </div>
+            
+            <div class="duck-card-speed">
+                <p>speed: {{duck1.speed}}</p>
+            </div>
+                <div class="duck-card-attack">
+                    <p>attack: {{duck1.attack}}</p>
+                </div>
+                
+                <div class="duck-card-defense">
+                    <p>defense: {{duck1.defense}}</p>
+                </div>
+                
+                <div class="duck-card-health">
+                    <p>health: {{duck1.health}}</p>
+                </div>
+        </div>
+
+
+    
+    
+    <div class="attack-player-2-animation">
+                <div class="duck-image">
+                    <img src="\static\ducks\{{duck2.image}}" alt="" height="290" width="290" class="duck-image">
+                </div>
+                    
+                <div class="background-card-image">
+        
+                    <img src="/static/m89ivklbb5u61.png"  width="450" alt="">
+                </div>
+                
+                <div class="duck-card-name">
+                    <h2>{{duck2.name}}</h2>
+                    </div>
+                    
+                    <div class="duck-card-speed">
+                        <p>speed: {{duck2.speed}}</p>
+                    </div>
+                        <div class="duck-card-attack">
+                            <p>attack: {{duck2.attack}}</p>
+                        </div>
+                        
+                        <div class="duck-card-defense">
+                            <p>defense: {{duck2.defense}}</p>
+                        </div>
+                        
+                        <div class="duck-card-health">
+                            <p>health: {{duck2.health}}</p>
+                        </div>
         
     </div>
 </div>
 
 
 
+{% endblock %}
+
+
+{% extends "base.html" %}
+{% block content %}
+<br>
+<h1>{{first_attacker.name}}'s Turn</h1>
+
+<div class="game-display-container">
+    <div class="animation-container">
+
+    <br>
+     
+     
+        <div class="background-card-image">
+
+            <img src="/static/m89ivklbb5u61.png"  width="450" alt="">
+        </div>
+        
+        <div class="duck-card-name">
+            <h2>{{duck1.name}}</h2>
+            </div>
+            
+            <div class="duck-card-speed">
+                <p>speed: {{duck1.speed}}</p>
+            </div>
+                <div class="duck-card-attack">
+                    <p>attack: {{duck1.attack}}</p>
+                </div>
+                
+                <div class="duck-card-defense">
+                    <p>defense: {{duck1.defense}}</p>
+                </div>
+                
+                <div class="duck-card-health">
+                    <p>health: {{duck1.health}}</p>
+                </div>
+        </div>
+    <div class="attack-player-1-animation">
+--
+
+    <div class="duck-image-card">
+        <img src="\static\ducks\{{battle.duck_1.image}}" alt="" height="290" width="290" class="duck-image">
+    </div>
+    <div class="background-card-image">
+
+        <img src="/static/m89ivklbb5u61.png"  width="450" alt="">
+    </div>
+
+        
+    <div class="duck-card-name">
+        <h2>{{battle.duck_1.name}}</h2>
+        </div>
+        
+        <div class="duck-card-speed">
+            <p>speed: {{battle.duck_1.speed}}</p>
+        </div>
+            <div class="duck-card-attack">
+                <p>attack: {{battle.duck_1.attack}}</p>
+            </div>
+            
+            <div class="duck-card-defense">
+                <p>defense: {{battle.duck_1.defense}}</p>
+            </div>
+            
+            <div class="duck-card-health">
+                <p>health: {{battle.duck_1.health}}</p>
+            </div>
+    </div>
+    
+  --  
+
+        <div class="duck-fighter-2">
+            <br>
+            <img src="\static\ducks\{{battle.duck_2.image}}" alt="" height="200" width="200" class="duck-image">
+            
+            <hr>
+                <h2>{{battle.duck_2.name}}</h2>
+                <hr>
+                <h2>attack: {{battle.duck_2.attack}}</h2>
+                <h2>defense: {{battle.duck_2.defense}}</h2>
+                <h2>speed: {{battle.duck_2.speed}}</h2>
+                <h2>health: {{battle.duck_2.health}}</h2>
+        </div>
+    
+    </div>
+</div>
+
+    
+    <br>
+    
+    <h2>{{first_attacker.name}} Choose an attack :</h2>
+    <form action="/fight_club/battle/{{battle.id}}/register_first_attack" method="post">
+        <div class="attack-container">
+        
+        {% for attack in first_attacker.attack_names_list %}
+    <div class="attack">
+
+        <button name="attack" id="{{attack}}" value="{{attack}}">{{attack}}</button>
+    </div>
+        {% endfor %}
+        
+        <input type="text" name="duck_id" value="{{first_attacker.id}}" hidden>
+        <br>
+        
+        <input type="text" name="next_duck_id" value="{{second_attacker.id}}" hidden>
+        
+</form>
+</div>
 {% endblock %}
