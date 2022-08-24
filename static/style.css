@@ -214,19 +214,22 @@ button {
 
 
 .duck-fighter-1{
-    margin-right: 11%;
+    border-style: solid;
+    border-color: rgb(246, 174, 45);
+    border-width: 10px;
+    margin-right: 4%;
     margin-top: 150px;
-    height: 510px;
-    width: 400px;
+    height: fit-content;
+    width: 40%;
     border-radius: 10px;
-    background-color: rgb(246, 174, 45);
+    background-color: rgba(246, 176, 45, 0.589);
 }
 
 .duck-fighter-2{
-    margin-right: 11%;
+    margin-right: 4%;
     margin-top: 150px;
     height: 510px;
-    width: 400px;
+    width: 40%;
     border-radius: 10px;
     background-color: rgb(246, 174, 45);
 }
@@ -239,6 +242,49 @@ button {
     margin-left: 36%;
 }
 
+.duck-battle-card { 
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(55, 57, 58);
+}
+
+.card-duck-name {
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(55, 57, 58);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.animation-container {
+    display: flex;
+    justify-content: space-around ;
+}
+
+.test-animation {
+    border-style: solid;
+    animation-name: bounce;
+    animation-duration: 5s;
+}
+
+@keyframes duck-attack {
+    0% {background-color: aqua;}
+    25% {background-color: black;}
+    50% {background-color: cadetblue;}
+    75% {background-color: brown;}
+    100% {background-color: aqua;}
+}
+
+
+@keyframes bounce {
+    0% {margin-left: 100px;}
+    25% {margin-left: 200px;}
+    50% {margin-left: 300px;}
+    75% {margin-left: 2000px;}
+    100% {margin-left: 100px;}
+}
 
 
 

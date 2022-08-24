@@ -26,8 +26,14 @@
     <div class="edit-duck-image-container">
         {% for picture in duck_pictures %}
         <div class="image-selection">
-            
+            {% if picture == duck.image %}
+            <input type="radio" name="duck_image" value="{{picture}}" checked>
+            {% else %}
             <input type="radio" name="duck_image" value="{{picture}}">
+
+            {% endif %}
+            
+            
             <img src="/static/ducks/{{picture}}" height="150" width="150" alt="" class="duck-image">
         </div>
         {% endfor %}

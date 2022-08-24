@@ -39,3 +39,6 @@ def save_new_duck():
     new_duck(Duck(request.form["duck_name"], 0, 0, 0, 100, image = request.form["duck_image"]))
     return redirect("/all_ducks")
 
+@duck_blueprint.route("/test")
+def stek():
+    return render_template("test.html", duck_pictures = get_all_ducks())
