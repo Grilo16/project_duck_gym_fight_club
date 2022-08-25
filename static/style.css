@@ -37,6 +37,11 @@ nav>a {
     text-decoration: none;
 }
 
+.duck-gif {
+    border-radius: 25px;
+}
+
+
 button {
     border-radius: 10px;
 }
