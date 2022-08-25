@@ -32,16 +32,16 @@ from repositories.battle_repository import select_battles_lost_by_duck
 # Seeding starts 
 def seeding_db():
     # Add ducks
-    duck1 = new_duck(Duck("Ducky", 42, 69, 3, 690, image="rdbp-gallery-14.png"))
+    duck1 = new_duck(Duck("Ducky", 420, 69, 5, 6900, image="rdbp-gallery-14.png"))
     duck2 = new_duck(Duck("Psyduck", 69, 96, 1, 420, image="rdbp-gallery-12.png"))
     duck3 = new_duck(Duck("Donald", 105, 69, 4, 210, image="rdbp-gallery-11.png"))
-    duck4 = new_duck(Duck("Shanda Duckyleer", 210, 69, 2,  1000, image="rdbp-gallery-16.png"))
-    duck5 = new_duck(Duck("Eric The Master Duck", 420, 690, 10, 1000, image="rdbp-gallery-9.png"))
-    duck6 = new_duck(Duck("test duck", 0, 0, 0, 100, image="rdbp-gallery-17.png"))
+    duck4 = new_duck(Duck("Shanda Duckyleer", 210, 69, 2,  4200, image="rdbp-gallery-16.png"))
+    duck5 = new_duck(Duck("Eric The Master Duck", 420, 690, 5, 6900, image="rdbp-gallery-9.png"))
+    duck6 = new_duck(Duck("Hoisin", 0, 0, 0, 100, image="rdbp-gallery-17.png"))
     
 
     # Add gym classes
-    class1 = new_gym_class_for_duckies(Gym_class("Pond Swimming", "attack", 10))
+    class1 = new_gym_class_for_duckies(Gym_class("Pond Swimming", "attack", 50))
     # Add 3 ducks to gym class 1
     add_duck_to_class(duck1, class1)
     add_duck_to_class(duck2, class1)
@@ -55,12 +55,12 @@ def seeding_db():
     add_duck_to_class(duck4, class2)
     add_duck_to_class(duck5, class2)
 
-    class3 = new_gym_class_for_duckies(Gym_class("Ducking Around", "health", 9))
+    class3 = new_gym_class_for_duckies(Gym_class("Ducking Around", "health", 200))
     # Add 2 ducks to gym class 3
     add_duck_to_class(duck3, class3)
     add_duck_to_class(duck4, class3)
 
-    class4 = new_gym_class_for_duckies(Gym_class("Squishing", "defense", 9))
+    class4 = new_gym_class_for_duckies(Gym_class("Squishing", "defense", 69))
     # Add 2 ducks to gym class 4
     add_duck_to_class(duck2, class4)
     add_duck_to_class(duck3, class4)
@@ -78,22 +78,28 @@ def seeding_db():
 
     # SEEDING ENDS
 
-seeding_db()
+# seeding_db()
 
-# ducky = select_duck_by_id(1)
-# test_duck = select_duck_by_id(6)
-# gym_class1 = select_class_by_id(1)
-# gym_class2 = select_class_by_id(2)
-# gym_class3 = select_class_by_id(3)
-# gym_class4 = select_class_by_id(4)
+# View ducks
+# create a duck
+# show stats
+# enrol in classes make him strong
 
+# create a class
+# enrol ducks, show the changes
 
+# Edit ducks and classes
 
-# test_battle = Battle(ducky, test_duck)
-# test_battle.fight_turn("gust", "peck")
-# print(test_battle)
+# go to fightclub
 
+# Eric v ducky - demonstrate speed variability + defense
+# Eric v Shanda - demonstrate speed superiority + stop halfway
+# Psyduck v Donald - demonstrate victory 
+# restart eric v shanda demonstrate restartability
 
+# Show fight logs
+
+#  Go to test page
 
 # list(map(lambda item : print(item.__dict__) ,get_all_ducks()))
 # list(map(lambda item : print(item.__dict__) ,get_all_classes()))
